@@ -34,9 +34,39 @@
       onclick="pomoStart(); this.onclick='';">
     시작</button>
       
-      <div class="container">
+      <div class="">
         <div class="center-flex">
           <div class="timer"></div>
+        </div>
+        <div>
+          <div class="technik-wrapper">
+            <div class="group-technic">
+              <div><h2>피봇 직선</h2></div>
+              <div><h2>볼레오 베이직</h2></div>
+            </div>
+            <div class="group-technic">
+              <div><h2>아도르노 정면</h2></div>
+              <div><h2>라피즈</h2></div>
+            </div>
+            <div class="group-technic">
+              <div><h2>롤로</h2></div>
+              <div><h2>아도르노 걷기</h2></div>
+            </div>
+          </div>
+          <div class="technik-wrapper">
+            <div class="group-technic">
+              <div><h2>피벗 대각선</h2></div>
+              <div><h2>볼레오 걷기</h2></div>
+            </div>
+            <div class="group-technic">
+              <div><h2>깔레시따 아도르노</h2></div>
+              <div><h2>라피즈 아도르노</h2></div>
+            </div>
+            <div class="group-technic">
+              <div><h2>브이스탭 아도르노</h2></div>
+              <div><h2>엔로스케</h2></div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -52,7 +82,8 @@
       let restTime = 5;
       // let restTime = 300;
 
-      var trainings = [["t", 180, "t1"], ["r", 10, "r"], ["t", 180, "t3"]];
+      // var trainings = [["t", 180, "t1"], ["r", 10, "r"], ["t", 180, "t3"]];
+      var trainings = [["t", 10, "t1"], ["r", 5, "r"], ["t", 180, "t3"]];
       var nowTraingTime = trainings[0][1];
       var totalStep = trainings.length;
       var nowStep = 0;
@@ -77,6 +108,7 @@
         timer.innerHTML = `${minutes} : ${seconds}`;
         if (nowTraingTime < 0) {
                             clearInterval(pomoInterval);
+                            nowStep += 1;
                             restStart();
                             restInterval = setInterval(restStart, 1000);
                             // beep();

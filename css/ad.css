@@ -148,3 +148,11 @@ h1 {
 .timer{
   font-size: 4rem;
 }
+.group-technic{
+  display: flex;
+}
+
+.technik-wrapper{
+  display: flex;
+  justify-content: space-between;
+}
