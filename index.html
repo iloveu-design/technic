@@ -82,15 +82,19 @@
       let restTime = 5;
       // let restTime = 300;
 
+      var trainingsProd = [["traning", 180, "t1"], ["rest", 10, "r"], ["traning", 180, "t3"], ["rest", 10, "r"], ["traning", 180, "t3"]];
       // var trainings = [["t", 180, "t1"], ["r", 10, "r"], ["t", 180, "t3"]];
-      var trainings = [["t", 10, "t1"], ["r", 5, "r"], ["t", 180, "t3"]];
+      var trainings = [["traning", 10, "t1"], ["rest", 5, "r"], ["traning", 180, "t3"]];
       var nowTraingTime = trainings[0][1];
       var totalStep = trainings.length;
       var nowStep = 0;
+      var nowStatus = "t";
+      var nowProgram = "t";
 
       console.log(trainings.length);
 
       function pomoStart() {
+        timer.classList.add(trainings[0][0]);
         pomodoro();
         pomoInterval = setInterval(pomodoro, 1000);
       }
@@ -109,23 +113,32 @@
         if (nowTraingTime < 0) {
                             clearInterval(pomoInterval);
                             nowStep += 1;
+                            nowTraingTime = trainings[nowStep][1];
+                            nowStatus = trainings[nowStep][0];
+                            nowProgram = trainings[nowStep][2];
+                            console.log(nowStep, nowStatus, nowProgram);
+                            timer.classList.remove("traning");
+                            timer.classList.remove("rest");
+                            timer.classList.add(nowStatus);
                             restStart();
-                            restInterval = setInterval(restStart, 1000);
+                            
                             // beep();
         }
       }
       
       function restStart() {
-        const restMinutes = String(Math.floor(restTime / 60)).padStart(2, "0");
-        const restSeconds = String(restTime % 60).padStart(2, "0");
-        restTime -= 1;
-        timer.innerHTML = `${restMinutes} : ${restSeconds}`;
-        if (restTime < 5 && restTime >= 0) {
-                                            // beep();
-        } else if (restTime < 0) {
-                                  clearInterval(restInterval);
-                                  // window.location.reload(true);
-        }
+        pomoInterval = setInterval(pomodoro, 1000);
+        // restInterval = setInterval(restStart, 1000);
+        // const restMinutes = String(Math.floor(restTime / 60)).padStart(2, "0");
+        // const restSeconds = String(restTime % 60).padStart(2, "0");
+        // restTime -= 1;
+        // timer.innerHTML = `${restMinutes} : ${restSeconds}`;
+        // if (restTime < 5 && restTime >= 0) {
+        //                                     // beep();
+        // } else if (restTime < 0) {
+        //                           clearInterval(restInterval);
+        //                           // window.location.reload(true);
+        // }
       }
       
       // function beep() { 

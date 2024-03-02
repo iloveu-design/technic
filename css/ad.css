@@ -147,6 +147,8 @@ h1 {
 
 .timer{
   font-size: 4rem;
+  border-radius: 10rem;
+  padding: 1rem 2rem;
 }
 .group-technic{
   display: flex;
@@ -155,4 +157,12 @@ h1 {
 .technik-wrapper{
   display: flex;
   justify-content: space-between;
+}
+
+.traning {
+  background-color: #78e08f;
+}
+
+.rest{
+  background-color: #e55039;
 }
