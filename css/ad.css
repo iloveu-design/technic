@@ -1,7 +1,7 @@
-.tango-container {
+.full-container {
   display: flex;
   height: 100vh;
-  width: 1003;
+  width: 100%;
   position: relative;
 }
 
@@ -137,4 +137,14 @@ h1 {
   color: #4a69bd;
   color: #60a3bc;
   color: #78e08f;
+}
+
+
+.center-flex{
+  display: flex;
+  justify-content: center;
+}
+
+.timer{
+  font-size: 4rem;
 }

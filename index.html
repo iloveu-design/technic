@@ -9,7 +9,7 @@
     />
     <meta name="description" content="" />
     <meta name="”keywords”" content="" />
-    <title>모두의탱고 광고</title>
+    <title>모두의탱고 태크닉</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,95 +29,134 @@
 
   <body id="lbody">
     <main>
-      <div class="tango-container" id="videoWrapper">
-        <div class="video-wrapper">
-          <video controls autoplay muted width="100%" id="video1">
-            <source src="/video/best-tangueros.mp4" type="video/mp4" />
-          </video>
-          <video controls muted width="100%" id="video2">
-            <source src="/video/be-me-tango.mp4" type="video/mp4" />
-          </video>
+      <button class = "btn" 
+      type = "button"
+      onclick="pomoStart(); this.onclick='';">
+    시작</button>
+      
+      <div class="container">
+        <div class="center-flex">
+          <div class="timer"></div>
         </div>
-      </div>
-      <div class="something-text" id="messageWrapper">
-        <div class="center-text">
-          <div>
-            <h2 class="animate__animated" id="aa">
-              <div id="adText1" class="tagno-wording">
-                신학기이벤트<br>
-                <strong>원데이클래스</strong><br /><span
-                  >무료</span
-                >
-              </div>
-              <div id="adText2" class="tagno-wording">2030<br>
-              탱고 모임</div>
-              <div id="adText3" class="tagno-wording">
-                자세를 바르게!
-                <br>탱고
-              </div>
-              <div id="adText4" class="tagno-wording">
-                남과 다른 <br>취미 활동
-              </div>
-              <div id="adText5" class="tagno-wording">
-                대학생 <br>대환영
-              </div>
-            </h2>
-          </div>
-        </div>
+
       </div>
     </main>
     <script>
-      var vid1 = document.getElementById("video1");
-      var vid2 = document.getElementById("video2");
-      var centerText = document.querySelector(".center-text");
-      var videoWrapper = document.getElementById("videoWrapper");
-      var messageWrapper = document.getElementById("messageWrapper");
-      var aa = document.getElementById("aa");
-      var randomColor = ["#e55039", "#4a69bd", "#60a3bc"];
-      var rand_0_6 = 0;
-      var rand_0_1_text = 0;
-      var tagnoWordings = document.querySelectorAll(".tagno-wording");
-      vid2.style.display = "none";
+      const pomoBtn = document.querySelector(".btn");
+      const timer = document.querySelector(".timer");
 
-      function middle() {
-        videoWrapper.style.display = "none";
-        rand_0_1_text = Math.floor(Math.random() * 5);
-        for (var i = 0; i < tagnoWordings.length; i++) {
-          tagnoWordings[i].style.display = "none";
-          if (rand_0_1_text == i) {
-            tagnoWordings[i].style.display = "block"; //클래스 값이 abc인 모든 요소를 빨간색으로 변경
-          }
+      let pomoInterval;
+      let restInterval;
+      // let pomoTime = 1500;
+      let pomoTime = 10;
+      let restTime = 5;
+      // let restTime = 300;
+
+      var trainings = [["t", 180, "t1"], ["r", 10, "r"], ["t", 180, "t3"]];
+      var nowTraingTime = trainings[0][1];
+      var totalStep = trainings.length;
+      var nowStep = 0;
+
+      console.log(trainings.length);
+
+      function pomoStart() {
+        pomodoro();
+        pomoInterval = setInterval(pomodoro, 1000);
+      }
+      
+      function pomodoro() {
+        // const minutes = String(Math.floor(pomoTime / 60)).padStart(2, "0");
+        // const seconds = String(pomoTime % 60).padStart(2, "0");
+        // nowTraingTime = trainings[0][1];
+        const minutes = String(Math.floor(nowTraingTime / 60)).padStart(2, "0");
+        const seconds = String(nowTraingTime % 60).padStart(2, "0");
+
+
+        // pomoTime -= 1;
+        nowTraingTime -= 1;
+        timer.innerHTML = `${minutes} : ${seconds}`;
+        if (nowTraingTime < 0) {
+                            clearInterval(pomoInterval);
+                            restStart();
+                            restInterval = setInterval(restStart, 1000);
+                            // beep();
         }
-        messageWrapper.style.display = "block";
-        rand_0_6 = Math.floor(Math.random() * 3);
       }
-
-      function last() {
-        centerText.style.backgroundColor = randomColor[rand_0_6];
-        videoWrapper.style.display = "block";
-        messageWrapper.style.display = "none";
-        aa.classList.remove("animate__jello");
-        aa.classList.remove("animate__repeat-3");
+      
+      function restStart() {
+        const restMinutes = String(Math.floor(restTime / 60)).padStart(2, "0");
+        const restSeconds = String(restTime % 60).padStart(2, "0");
+        restTime -= 1;
+        timer.innerHTML = `${restMinutes} : ${restSeconds}`;
+        if (restTime < 5 && restTime >= 0) {
+                                            // beep();
+        } else if (restTime < 0) {
+                                  clearInterval(restInterval);
+                                  // window.location.reload(true);
+        }
       }
+      
+      // function beep() { 
+      // const snd = new Audio("https://t1.daumcdn.net/cfile/tistory/99412B355CF6B93806?original");
+      //       snd.play(); 
+      // } 
 
-      vid1.onended = function () {
-        vid1.style.display = "none";
-        middle();
-        setTimeout(function () {
-          last();
-          vid2.play();
-          vid2.style.display = "block";
-        }, 10000);
-      };
-      vid2.onended = function () {
-        vid2.style.display = "none";
-        middle();
-        setTimeout(function () {
-          last();
-          vid1.play();
-          vid1.style.display = "block";
-        }, 10000);
-      };
+
+
+    </script>
+
+    <script>
+      // var vid1 = document.getElementById("video1");
+      // var vid2 = document.getElementById("video2");
+      // var centerText = document.querySelector(".center-text");
+      // var videoWrapper = document.getElementById("videoWrapper");
+      // var messageWrapper = document.getElementById("messageWrapper");
+      // var aa = document.getElementById("aa");
+      // var randomColor = ["#e55039", "#4a69bd", "#60a3bc"];
+      // var rand_0_6 = 0;
+      // var rand_0_1_text = 0;
+      // var tagnoWordings = document.querySelectorAll(".tagno-wording");
+      // vid2.style.display = "none";
+
+      // function middle() {
+      //   videoWrapper.style.display = "none";
+      //   rand_0_1_text = Math.floor(Math.random() * 5);
+      //   for (var i = 0; i < tagnoWordings.length; i++) {
+      //     tagnoWordings[i].style.display = "none";
+      //     if (rand_0_1_text == i) {
+      //       tagnoWordings[i].style.display = "block"; //클래스 값이 abc인 모든 요소를 빨간색으로 변경
+      //     }
+      //   }
+      //   messageWrapper.style.display = "block";
+      //   rand_0_6 = Math.floor(Math.random() * 3);
+      // }
+
+      // function last() {
+      //   centerText.style.backgroundColor = randomColor[rand_0_6];
+      //   videoWrapper.style.display = "block";
+      //   messageWrapper.style.display = "none";
+      //   aa.classList.remove("animate__jello");
+      //   aa.classList.remove("animate__repeat-3");
+      // }
+
+      // vid1.onended = function () {
+      //   vid1.style.display = "none";
+      //   middle();
+      //   setTimeout(function () {
+      //     last();
+      //     vid2.play();
+      //     vid2.style.display = "block";
+      //   }, 10000);
+      // };
+      // vid2.onended = function () {
+      //   vid2.style.display = "none";
+      //   middle();
+      //   setTimeout(function () {
+      //     last();
+      //     vid1.play();
+      //     vid1.style.display = "block";
+      //   }, 10000);
+      // };
     </script>
   </body>
 </html>
