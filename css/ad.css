@@ -6,9 +6,9 @@
 }
 
 .video-wrapper {
-  position: absolute;
-  width: 100%;
-  z-index: 1;
+  /* position: absolute; */
+  /* width: 100%; */
+  /* z-index: 1; */
 }
 
 .text-box-wrapper {
@@ -155,8 +155,6 @@ h1 {
 }
 
 .technik-wrapper{
-  display: flex;
-  justify-content: space-between;
 }
 
 .traning {
@@ -168,7 +166,6 @@ h1 {
 }
 
 .technic-cell{
-  height: 30vh;
   min-width: 10vh;
   background-color: antiquewhite;
   margin: 1rem;
@@ -185,4 +182,12 @@ h1 {
 }
 .now{
   background-color: #78e08f;
+}
+
+.next{
+  background-color:khaki;
+}
+
+.technic-container{
+  display: flex;
 }

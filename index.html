@@ -38,7 +38,7 @@
         <div class="center-flex">
           <div class="timer"></div>
         </div>
-        <div>
+        <div class="technic-container">
           <div class="technik-wrapper">
             <div class="group-technic">
               <div class="technic-cell" id="t1"><h2>피봇 직선</h2></div>
@@ -52,8 +52,6 @@
               <div class="technic-cell" id="t5"><h2>롤로</h2></div>
               <div class="technic-cell" id="t6"><h2>아도르노 걷기</h2></div>
             </div>
-          </div>
-          <div class="technik-wrapper">
             <div class="group-technic">
               <div class="technic-cell" id="t7"><h2>피벗 대각선</h2></div>
               <div class="technic-cell" id="t8"><h2>볼레오 걷기</h2></div>
@@ -67,6 +65,14 @@
               <div class="technic-cell" id="t12"><h2>엔로스케</h2></div>
             </div>
           </div>
+            <div class="video-wrapper">
+              <video controls autoplay muted loop width="100%" id="video1">
+                <source src="/video/ocho-1.MP4" type="video/mp4" />
+              </video>
+              <!-- <video controls muted width="100%" id="video2">
+                <source src="/video/be-me-tango.mp4" type="video/mp4" />
+              </video> -->
+            </div>
         </div>
 
       </div>
@@ -76,6 +82,7 @@
       const timer = document.querySelector(".timer");
       var allTrainingCell = document.querySelectorAll(".technic-cell");
       var nowTraninCell =  document.querySelector("#t1");
+      var nextProgramCell =  document.querySelector("#t2");
 
       let pomoInterval;
       let restInterval;
@@ -86,7 +93,7 @@
 
       // var trainingsProd = [["traning", 180, "#t1"], ["rest", 15, "r"], ["traning", 180, "#t2"], ["rest", 20, "r"], ["traning", 180, "#t3"], ["rest", 15, "r"], ["traning", 180, "#t4"], ["rest", 20, "r"], ["traning", 180, "#t5"], ["rest", 15, "r"], ["traning", 180, "#t6"], ["rest", 60, "r"], ["traning", 180, "#t7"], ["rest", 15, "r"], ["traning", 180, "#t8"], ["rest", 20, "r"], ["traning", 180, "#t9"], ["rest", 15, "r"], ["traning", 180, "#t10"], ["rest", 20, "r"], ["traning", 180, "#t11"], ["rest", 15, "r"], ["traning", 180, "#t12"] ];
       // var trainings = [["t", 180, "t1"], ["r", 10, "r"], ["t", 180, "t3"]];
-      // var trainings = [["traning", 10, "#t1"], ["rest", 5, "r"], ["traning", 7, "#t2"]];
+      // var trainings = [["traning", 10, "#t1"], ["rest", 5, "r"], ["traning", 7, "#t2"], ["rest", 5, "r"], ["traning", 7, "#t3"]];
       var trainings = [["traning", 180, "#t1"], ["rest", 15, "r"], ["traning", 180, "#t2"], ["rest", 20, "r"], ["traning", 180, "#t3"], ["rest", 15, "r"], ["traning", 180, "#t4"], ["rest", 20, "r"], ["traning", 180, "#t5"], ["rest", 15, "r"], ["traning", 180, "#t6"], ["rest", 60, "r"], ["traning", 180, "#t7"], ["rest", 15, "r"], ["traning", 180, "#t8"], ["rest", 20, "r"], ["traning", 180, "#t9"], ["rest", 15, "r"], ["traning", 180, "#t10"], ["rest", 20, "r"], ["traning", 180, "#t11"], ["rest", 15, "r"], ["traning", 180, "#t12"] ];
 
       var nowTraingTime = trainings[0][1];
@@ -94,12 +101,11 @@
       var nowStep = 0;
       var nowStatus = "traning";
       var nowProgram = "#t1";
+      var nextProgram = "#t2";
 
 
       function pomoStart() {
         nowTraninCell = document.querySelector(nowProgram);
-        console.log(nowProgram);
-        console.log(nowTraninCell);
         nowTraninCell.classList.add("now")
         timer.classList.add(trainings[0][0]);
         pomodoro();
@@ -116,25 +122,48 @@
 
         // pomoTime -= 1;
         nowTraingTime -= 1;
+
         timer.innerHTML = `${minutes} : ${seconds}`;
         if (nowTraingTime < 0) {
                             clearInterval(pomoInterval);
                             nowStep += 1;
-                            nowTraingTime = trainings[nowStep][1];
-                            nowStatus = trainings[nowStep][0];
-                            nowProgram = trainings[nowStep][2];
-                            console.log(nowStep, nowStatus, nowProgram);
+                            console.log(totalStep, "&&",nowStep);
+                            if(totalStep > nowStep) {
+                              nowTraingTime = trainings[nowStep][1];
+                              nowStatus = trainings[nowStep][0];
+                              nowProgram = trainings[nowStep][2];
+                            } else {
+                              return;
+                            }
+                           
+                            if(totalStep > nowStep+1) {
+                              nextProgram = trainings[nowStep+1][2];
+                            }
+
                             timer.classList.remove("traning");
                             timer.classList.remove("rest");
                             timer.classList.add(nowStatus);
-                            console.log("nowProgramnowProgram", nowProgram);
-                            if (nowProgram != "r") {
-                              nowTraninCell = document.querySelector(nowProgram);
-                            }
+                            
                             for ( var i = 0; i < allTrainingCell.length; i++ ) {
                               allTrainingCell[i].classList.remove("now");
                             }
-                            nowTraninCell.classList.add("now");
+                            if (nowProgram != "r") {
+                              nowTraninCell = document.querySelector(nowProgram);
+                              nowTraninCell.classList.add("now");
+                              for ( var i = 0; i < allTrainingCell.length; i++ ) {
+                                allTrainingCell[i].classList.remove("next");
+                              }
+                            } else {
+                              nowTraninCell = null;
+                              if (totalStep == nowStep) {
+
+                              } else {
+                                nextProgramCell = document.querySelector(nextProgram);
+                                nextProgramCell.classList.add("next");
+                              }
+                            }
+                            console.log("end", totalStep == nowStep);
+
                             if (totalStep == nowStep) {
                               console.log("끝");
                             } else {
