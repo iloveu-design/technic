@@ -166,3 +166,9 @@ h1 {
 .rest{
   background-color: #e55039;
 }
+
+.technic-cell{
+  height: 30vh;
+  background-color: antiquewhite;
+  margin: 1rem;
+}
