@@ -1,0 +1,140 @@
+.tango-container {
+  display: flex;
+  height: 100vh;
+  width: 1003;
+  position: relative;
+}
+
+.video-wrapper {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.text-box-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+h1 {
+  font-size: 8rem;
+  font-weight: 900;
+  line-height: 1;
+  color: #75aadb;
+  background-color: #fff;
+  padding: 1rem 2rem;
+}
+
+.white {
+  color: #fff;
+}
+
+.text-box {
+  display: inline-block;
+  padding: 1rem 3rem;
+}
+
+.free {
+  color: rgb(0, 150, 180);
+  font-size: 12rem;
+  font-weight: 900;
+  width: 100%;
+  --animate-duration: 5s;
+}
+
+.schedule p {
+  font-size: 5rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+.time {
+  font-size: 8rem;
+  color: yellow;
+}
+
+.something-text {
+  display: none;
+  text-align: center;
+}
+
+.accent-tango {
+  font-size: 18rem;
+}
+
+.center-text {
+  background-color: #4a69bd;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  line-height: 1.2;
+}
+.center-text h2 {
+  font-size: 13rem;
+}
+.center-text h3 {
+  font-size: 6rem;
+}
+
+.red {
+  color: rgb(249, 48, 48);
+  font-weight: bold;
+}
+
+.ice {
+  color: #25ccf7;
+  font-size: 7rem;
+  display: inline-block;
+}
+
+.marqueeStyle {
+  display: inline-block;
+  -webkit-animation: scrolling-left1 20s linear infinite;
+  animation: scrolling-left1 20s linear infinite;
+}
+
+/* scrolling-left is continuous/repeatly text */
+@keyframes scrolling-left1 {
+  0% {
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+  }
+}
+
+@-webkit-keyframes scrolling-left1 {
+  0% {
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.dd {
+  color: #e55039;
+  color: #4a69bd;
+  color: #60a3bc;
+  color: #78e08f;
+}
