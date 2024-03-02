@@ -174,8 +174,12 @@ h1 {
   margin: 1rem;
   text-align: center;
   justify-items: center;
+  display: flex;
+  align-items: center;
 }
-
+.technic-cell h2{
+  text-align: center;
+}
 .now{
   background-color: #78e08f;
 }
