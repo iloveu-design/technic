@@ -169,6 +169,8 @@ h1 {
 
 .technic-cell{
   height: 30vh;
+  min-width: 10vh;
   background-color: antiquewhite;
   margin: 1rem;
+  text-align: center;
 }

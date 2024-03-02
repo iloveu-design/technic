@@ -74,7 +74,7 @@
     <script>
       const pomoBtn = document.querySelector(".btn");
       const timer = document.querySelector(".timer");
-      var allTrainingCell = document.querySelector(".technic-cell");
+      var allTrainingCell = document.querySelectorAll(".technic-cell");
       var nowTraninCell =  document.querySelector("#t1");
 
       let pomoInterval;
@@ -125,6 +125,10 @@
                             timer.classList.remove("rest");
                             timer.classList.add(nowStatus);
                             nowTraninCell = document.querySelector(nowProgram);
+                            for ( var i = 0; i < allTrainingCell.length; i++ ) {
+                              allTrainingCell[i].classList.remove("now");
+                            }
+                            nowTraninCell.classList.add("now");
                             if (totalStep == nowStep) {
                               console.log("끝");
                             } else {
