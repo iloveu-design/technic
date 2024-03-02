@@ -173,4 +173,9 @@ h1 {
   background-color: antiquewhite;
   margin: 1rem;
   text-align: center;
+  justify-items: center;
+}
+
+.now{
+  background-color: #78e08f;
 }

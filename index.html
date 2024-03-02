@@ -86,18 +86,21 @@
 
       // var trainingsProd = [["traning", 180, "#t1"], ["rest", 15, "r"], ["traning", 180, "#t2"], ["rest", 20, "r"], ["traning", 180, "#t3"], ["rest", 15, "r"], ["traning", 180, "#t4"], ["rest", 20, "r"], ["traning", 180, "#t5"], ["rest", 15, "r"], ["traning", 180, "#t6"], ["rest", 60, "r"], ["traning", 180, "#t7"], ["rest", 15, "r"], ["traning", 180, "#t8"], ["rest", 20, "r"], ["traning", 180, "#t9"], ["rest", 15, "r"], ["traning", 180, "#t10"], ["rest", 20, "r"], ["traning", 180, "#t11"], ["rest", 15, "r"], ["traning", 180, "#t12"] ];
       // var trainings = [["t", 180, "t1"], ["r", 10, "r"], ["t", 180, "t3"]];
-      // var trainings = [["traning", 10, "t1"], ["rest", 5, "r"], ["traning", 7, "t3"]];
+      // var trainings = [["traning", 10, "#t1"], ["rest", 5, "r"], ["traning", 7, "#t3"]];
       var trainings = [["traning", 180, "#t1"], ["rest", 15, "r"], ["traning", 180, "#t2"], ["rest", 20, "r"], ["traning", 180, "#t3"], ["rest", 15, "r"], ["traning", 180, "#t4"], ["rest", 20, "r"], ["traning", 180, "#t5"], ["rest", 15, "r"], ["traning", 180, "#t6"], ["rest", 60, "r"], ["traning", 180, "#t7"], ["rest", 15, "r"], ["traning", 180, "#t8"], ["rest", 20, "r"], ["traning", 180, "#t9"], ["rest", 15, "r"], ["traning", 180, "#t10"], ["rest", 20, "r"], ["traning", 180, "#t11"], ["rest", 15, "r"], ["traning", 180, "#t12"] ];
 
       var nowTraingTime = trainings[0][1];
       var totalStep = trainings.length;
       var nowStep = 0;
-      var nowStatus = "t";
-      var nowProgram = "t";
+      var nowStatus = "traning";
+      var nowProgram = "#t1";
 
-      console.log(trainings.length);
 
       function pomoStart() {
+        nowTraninCell = document.querySelector(nowProgram);
+        console.log(nowProgram);
+        console.log(nowTraninCell);
+        nowTraninCell.classList.add("now")
         timer.classList.add(trainings[0][0]);
         pomodoro();
         pomoInterval = setInterval(pomodoro, 1000);
@@ -124,7 +127,10 @@
                             timer.classList.remove("traning");
                             timer.classList.remove("rest");
                             timer.classList.add(nowStatus);
-                            nowTraninCell = document.querySelector(nowProgram);
+                            console.log("nowProgramnowProgram", nowProgram);
+                            if (nowProgram != "r") {
+                              nowTraninCell = document.querySelector(nowProgram);
+                            }
                             for ( var i = 0; i < allTrainingCell.length; i++ ) {
                               allTrainingCell[i].classList.remove("now");
                             }
