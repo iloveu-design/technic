@@ -41,28 +41,16 @@
         <div class="technic-container">
           <div class="technik-wrapper">
             <div class="group-technic">
-              <div class="technic-cell" id="t1"><h2>피봇 직선</h2></div>
-              <div class="technic-cell" id="t2"><h2>볼레오 베이직</h2></div>
+              <div class="technic-cell" id="t1"><h2>걷기</h2></div>
+              <div class="technic-cell" id="t2"><h2>피봇 90도</h2></div>
             </div>
             <div class="group-technic">
-              <div class="technic-cell" id="t3"><h2>아도르노 정면</h2></div>
-              <div class="technic-cell" id="t4"><h2>라피즈</h2></div>
+              <div class="technic-cell" id="t3"><h2>크로스 기본</h2></div>
+              <div class="technic-cell" id="t4"><h2>크로스 변형</h2></div>
             </div>
             <div class="group-technic">
-              <div class="technic-cell" id="t5"><h2>롤로</h2></div>
-              <div class="technic-cell" id="t6"><h2>아도르노 걷기</h2></div>
-            </div>
-            <div class="group-technic">
-              <div class="technic-cell" id="t7"><h2>피벗 대각선</h2></div>
-              <div class="technic-cell" id="t8"><h2>볼레오 걷기</h2></div>
-            </div>
-            <div class="group-technic">
-              <div class="technic-cell" id="t9"><h2>깔레시따 아도르노</h2></div>
-              <div class="technic-cell" id="t10"><h2>라피즈 아도르노</h2></div>
-            </div>
-            <div class="group-technic">
-              <div class="technic-cell" id="t11"><h2>브이스탭 아도르노</h2></div>
-              <div class="technic-cell" id="t12"><h2>엔로스케</h2></div>
+              <div class="technic-cell" id="t5"><h2>백 오초 </h2></div>
+              <div class="technic-cell" id="t6"><h2>프론트 오초</h2></div>
             </div>
           </div>
             <div class="video-wrapper">
@@ -84,6 +72,7 @@
       var nowTraninCell =  document.querySelector("#t1");
       var nextProgramCell =  document.querySelector("#t2");
 
+      let categoryText;
       let pomoInterval;
       let restInterval;
       // let pomoTime = 1500;
@@ -93,8 +82,8 @@
 
       // var trainingsProd = [["traning", 180, "#t1"], ["rest", 15, "r"], ["traning", 180, "#t2"], ["rest", 20, "r"], ["traning", 180, "#t3"], ["rest", 15, "r"], ["traning", 180, "#t4"], ["rest", 20, "r"], ["traning", 180, "#t5"], ["rest", 15, "r"], ["traning", 180, "#t6"], ["rest", 60, "r"], ["traning", 180, "#t7"], ["rest", 15, "r"], ["traning", 180, "#t8"], ["rest", 20, "r"], ["traning", 180, "#t9"], ["rest", 15, "r"], ["traning", 180, "#t10"], ["rest", 20, "r"], ["traning", 180, "#t11"], ["rest", 15, "r"], ["traning", 180, "#t12"] ];
       // var trainings = [["t", 180, "t1"], ["r", 10, "r"], ["t", 180, "t3"]];
-      // var trainings = [["traning", 10, "#t1"], ["rest", 5, "r"], ["traning", 7, "#t2"], ["rest", 5, "r"], ["traning", 7, "#t3"]];
-      var trainings = [["traning", 180, "#t1"], ["rest", 15, "r"], ["traning", 180, "#t2"], ["rest", 20, "r"], ["traning", 180, "#t3"], ["rest", 15, "r"], ["traning", 180, "#t4"], ["rest", 20, "r"], ["traning", 180, "#t5"], ["rest", 15, "r"], ["traning", 180, "#t6"], ["rest", 60, "r"], ["traning", 180, "#t7"], ["rest", 15, "r"], ["traning", 180, "#t8"], ["rest", 20, "r"], ["traning", 180, "#t9"], ["rest", 15, "r"], ["traning", 180, "#t10"], ["rest", 20, "r"], ["traning", 180, "#t11"], ["rest", 15, "r"], ["traning", 180, "#t12"] ];
+      var trainings = [["traning", 10, "#t1"], ["rest", 5, "r"], ["traning", 7, "#t2"], ["rest", 5, "r"], ["traning", 7, "#t3"]];
+      // var trainings = [["traning", 180, "#t1"], ["rest", 15, "r"], ["traning", 180, "#t2"], ["rest", 20, "r"], ["traning", 180, "#t3"], ["rest", 15, "r"], ["traning", 180, "#t4"], ["rest", 20, "r"], ["traning", 180, "#t5"], ["rest", 15, "r"], ["traning", 180, "#t6"], ["rest", 60, "r"], ["traning", 180, "#t7"], ["rest", 15, "r"], ["traning", 180, "#t8"], ["rest", 20, "r"], ["traning", 180, "#t9"], ["rest", 15, "r"], ["traning", 180, "#t10"], ["rest", 20, "r"], ["traning", 180, "#t11"], ["rest", 15, "r"], ["traning", 180, "#t12"] ];
 
       var nowTraingTime = trainings[0][1];
       var totalStep = trainings.length;
@@ -113,6 +102,7 @@
           pomodoro();
           pomoInterval = setInterval(pomodoro, 1000);
         }, 1000);
+
       }
       
       function pomodoro() {
@@ -127,6 +117,7 @@
         nowTraingTime -= 1;
 
         timer.innerHTML = `${minutes} : ${seconds}`;
+
         if (nowTraingTime < 0) {
                             clearInterval(pomoInterval);
                             nowStep += 1;
@@ -170,7 +161,7 @@
                             if (totalStep == nowStep) {
                               console.log("끝");
                             } else {
-                              restStart();
+                              restStart(nowStatus);
                             }
                             
                             
@@ -178,7 +169,7 @@
         }
       }
       
-      function restStart() {
+      function restStart(nowStatus) {
         if (nowStatus == "traning") {
           timer.innerHTML = "Go!";
         } else {
@@ -187,6 +178,7 @@
         setTimeout(function(){
           pomoInterval = setInterval(pomodoro, 1000);
         }, 1000);
+
         // restInterval = setInterval(restStart, 1000);
         // const restMinutes = String(Math.floor(restTime / 60)).padStart(2, "0");
         // const restSeconds = String(restTime % 60).padStart(2, "0");
