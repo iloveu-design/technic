@@ -114,10 +114,6 @@
         nowTraninCell.classList.add("now")
         timer.classList.add(trainings[0][0]);
         timer.innerHTML = "Go!";
-        nowsource = document.querySelector(nowProgram+"s").getAttribute('src');
-        mainvideo.pause();
-        mainsource.setAttribute('src', nowsource);
-        mainvideo.load();
 
         setTimeout(function(){
           pomodoro();
