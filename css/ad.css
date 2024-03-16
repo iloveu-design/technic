@@ -146,12 +146,12 @@ h1 {
 }
 
 .timer{
-  font-size: 4rem;
+  font-size: 6rem;
   border-radius: 10rem;
   padding: 1rem 2rem;
   position: absolute;
-  right: 1vw;
-  top: 48vh;
+  right: 2vw;
+  top: 38vh;
   display: block;
 }
 .group-technic{
