@@ -41,61 +41,58 @@
         <div class="technic-container">
           <div class="technik-wrapper">
             <div class="group-technic">
-              <div class="thumbnail-video">
-                <video controls autoplay muted loop width="100%" id="v-walk">
-                  <source src="/video/ocho-1.MP4" type="video/mp4" />
+              <div class="thumbnail-video" id="t1vw">
+                <video controls autoplay muted loop width="100%" id="t1v">
+                  <source src="/video/ocho-1.MP4" type="video/mp4" id="t1s"/>
                 </video>
               </div>
               <div class="technic-cell" id="t1"><h2>걷기 6살리다</h2></div>
             </div>
             <div class="group-technic">
-              <div class="thumbnail-video">
-                <video controls autoplay muted loop width="100%" id="v-walk">
-                  <source src="/video/ocho-1.MP4" type="video/mp4" />
+              <div class="thumbnail-video" id="t2vw">
+                <video controls autoplay muted loop width="100%" id="t2v">
+                  <source src="/video/ocho-v1.MP4" type="video/mp4" id="t2s" />
                 </video>
               </div>
               <div class="technic-cell" id="t2"><h2>피봇 90도</h2></div>
             </div>
             <div class="group-technic">
-              <div class="thumbnail-video">
-                <video controls autoplay muted loop width="100%" id="v-walk">
-                  <source src="/video/ocho-1.MP4" type="video/mp4" />
+              <div class="thumbnail-video" id="t3vw">
+                <video controls autoplay muted loop width="100%" id="t3v">
+                  <source src="/video/ocho-1.MP4" type="video/mp4" id="t3s" />
                 </video>
               </div>
               <div class="technic-cell" id="t3"><h2>크로스 기본</h2></div>
             </div>
             <div class="group-technic">
-              <div class="thumbnail-video">
-                <video controls autoplay muted loop width="100%" id="v-walk">
-                  <source src="/video/ocho-1.MP4" type="video/mp4" />
+              <div class="thumbnail-video" id="t4vw">
+                <video controls autoplay muted loop width="100%" id="t4v">
+                  <source src="/video/ocho-1.MP4" type="video/mp4" id="t4s" />
                 </video>
               </div>
               <div class="technic-cell" id="t4"><h2>크로스 변형</h2></div>
             </div>
             <div class="group-technic">
-              <div class="thumbnail-video">
-                <video controls autoplay muted loop width="100%" id="v-walk">
-                  <source src="/video/ocho-v1.MP4" type="video/mp4" />
+              <div class="thumbnail-video" id="t5vw">
+                <video controls autoplay muted loop width="100%" id="t5v">
+                  <source src="/video/ocho-v1.MP4" type="video/mp4" id="t5s" />
                 </video>
               </div>
               <div class="technic-cell" id="t5"><h2>백 오초 </h2></div>
             </div>
             <div class="group-technic">
-              <div class="thumbnail-video">
-                <video controls autoplay muted loop width="100%" id="v-walk">
-                  <source src="/video/ocho-v1.MP4" type="video/mp4" />
+              <div class="thumbnail-video" id="t6vw">
+                <video controls autoplay muted loop width="100%" id="t6v">
+                  <source src="/video/ocho-v1.MP4" type="video/mp4" id="t6s" />
                 </video>
               </div>
               <div class="technic-cell" id="t6"><h2>프론트 오초</h2></div>
             </div>
           </div>
             <div class="video-wrapper">
-              <video controls autoplay muted loop width="100%" id="video1">
-                <source src="/video/ocho-v1.MP4" type="video/mp4" />
+              <video controls autoplay muted loop width="100%" id="mainv">
+                <source src="/video/ocho-v1.MP4" type="video/mp4" id="mainsource" />
               </video>
-              <!-- <video controls muted width="100%" id="video2">
-                <source src="/video/be-me-tango.mp4" type="video/mp4" />
-              </video> -->
             </div>
         </div>
 
@@ -105,6 +102,11 @@
       const pomoBtn = document.querySelector(".btn");
       const timer = document.querySelector(".timer");
       var allTrainingCell = document.querySelectorAll(".technic-cell");
+      var mainvideo = document.querySelector("#mainv");
+      var mainsource =  document.querySelector("#mainsource");
+      var source = mainsource.getAttribute('src');
+      var nowsource = document.querySelector("#t1s").getAttribute('src');
+      console.log(nowsource);
       var nowTraninCell =  document.querySelector("#t1");
       var nextProgramCell =  document.querySelector("#t2");
 
@@ -118,8 +120,8 @@
 
       // var trainingsProd = [["traning", 180, "#t1"], ["rest", 15, "r"], ["traning", 180, "#t2"], ["rest", 20, "r"], ["traning", 180, "#t3"], ["rest", 15, "r"], ["traning", 180, "#t4"], ["rest", 20, "r"], ["traning", 180, "#t5"], ["rest", 15, "r"], ["traning", 180, "#t6"], ["rest", 60, "r"], ["traning", 180, "#t7"], ["rest", 15, "r"], ["traning", 180, "#t8"], ["rest", 20, "r"], ["traning", 180, "#t9"], ["rest", 15, "r"], ["traning", 180, "#t10"], ["rest", 20, "r"], ["traning", 180, "#t11"], ["rest", 15, "r"], ["traning", 180, "#t12"] ];
       // var trainings = [["t", 180, "t1"], ["r", 10, "r"], ["t", 180, "t3"]];
-      // var trainings = [["traning", 10, "#t1"], ["rest", 5, "r"], ["traning", 7, "#t2"], ["rest", 5, "r"], ["traning", 7, "#t3"]];
-      var trainings = [["traning", 180, "#t1"], ["rest", 15, "r"], ["traning", 180, "#t2"], ["rest", 20, "r"], ["traning", 180, "#t3"], ["rest", 15, "r"], ["traning", 180, "#t4"], ["rest", 20, "r"], ["traning", 180, "#t5"], ["rest", 15, "r"], ["traning", 180, "#t6"] ];
+      var trainings = [["traning", 10, "#t1"], ["rest", 5, "#t2"], ["traning", 7, "#t2"], ["rest", 5, "#t3"], ["traning", 7, "#t3"], ["rest", 5, "#t4"], ["traning", 7, "#t4"], ["rest", 5, "#t5"], ["traning", 7, "#t5"], ["rest", 5, "#t6"], ["traning", 7, "#t6"]];
+      // var trainings = [["traning", 180, "#t1"], ["rest", 15, "r"], ["traning", 180, "#t2"], ["rest", 20, "r"], ["traning", 180, "#t3"], ["rest", 15, "r"], ["traning", 180, "#t4"], ["rest", 20, "r"], ["traning", 180, "#t5"], ["rest", 15, "r"], ["traning", 180, "#t6"] ];
 
       var nowTraingTime = trainings[0][1];
       var totalStep = trainings.length;
@@ -128,12 +130,21 @@
       var nowProgram = "#t1";
       var nextProgram = "#t2";
 
+      mainvideo.pause();
+      mainsource.setAttribute('src', nowsource);
+      mainvideo.load();
+
 
       function pomoStart() {
         nowTraninCell = document.querySelector(nowProgram);
         nowTraninCell.classList.add("now")
         timer.classList.add(trainings[0][0]);
         timer.innerHTML = "Go!";
+        nowsource = document.querySelector(nowProgram+"s").getAttribute('src');
+        mainvideo.pause();
+        mainsource.setAttribute('src', nowsource);
+        mainvideo.load();
+
         setTimeout(function(){
           pomodoro();
           pomoInterval = setInterval(pomodoro, 1000);
@@ -177,7 +188,7 @@
                             for ( var i = 0; i < allTrainingCell.length; i++ ) {
                               allTrainingCell[i].classList.remove("now");
                             }
-                            if (nowProgram != "r") {
+                            if (nowStatus != "rest") {
                               nowTraninCell = document.querySelector(nowProgram);
                               nowTraninCell.classList.add("now");
                               for ( var i = 0; i < allTrainingCell.length; i++ ) {
@@ -197,7 +208,7 @@
                             if (totalStep == nowStep) {
                               console.log("끝");
                             } else {
-                              restStart(nowStatus);
+                              restStart(nowStatus, nowProgram);
                             }
                             
                             
@@ -205,7 +216,12 @@
         }
       }
       
-      function restStart(nowStatus) {
+      function restStart(nowStatus, nowProgram) {
+        nowsource = document.querySelector(nowProgram+"s").getAttribute('src');
+        console.log(mainvideo);
+        mainvideo.pause();
+        mainsource.setAttribute('src', nowsource);
+        mainvideo.load();
         if (nowStatus == "traning") {
           timer.innerHTML = "Go!";
         } else {
