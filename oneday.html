@@ -35,57 +35,31 @@
     시작</button>
       
       <div class="">
-        <div class="center-flex">
           <div class="timer"></div>
-        </div>
         <div class="technic-container">
           <div class="technik-wrapper">
             <div class="group-technic">
-              <div class="thumbnail-video" id="t1vw">
-                <video controls autoplay muted loop width="100%" id="t1v">
-                  <source src="/video/ocho-1.MP4" type="video/mp4" id="t1s"/>
-                </video>
-              </div>
+                <source src="/video/ocho-1.MP4" type="video/mp4" id="t1s"/>
               <div class="technic-cell" id="t1"><h2>걷기 6살리다</h2></div>
             </div>
             <div class="group-technic">
-              <div class="thumbnail-video" id="t2vw">
-                <video controls autoplay muted loop width="100%" id="t2v">
-                  <source src="/video/ocho-v1.MP4" type="video/mp4" id="t2s" />
-                </video>
-              </div>
+                <source src="/video/ocho-v1.MP4" type="video/mp4" id="t2s" />
               <div class="technic-cell" id="t2"><h2>피봇 90도</h2></div>
             </div>
             <div class="group-technic">
-              <div class="thumbnail-video" id="t3vw">
-                <video controls autoplay muted loop width="100%" id="t3v">
-                  <source src="/video/ocho-1.MP4" type="video/mp4" id="t3s" />
-                </video>
-              </div>
+                <source src="/video/ocho-1.MP4" type="video/mp4" id="t3s" />
               <div class="technic-cell" id="t3"><h2>크로스 기본</h2></div>
             </div>
             <div class="group-technic">
-              <div class="thumbnail-video" id="t4vw">
-                <video controls autoplay muted loop width="100%" id="t4v">
-                  <source src="/video/ocho-1.MP4" type="video/mp4" id="t4s" />
-                </video>
-              </div>
+                <source src="/video/ocho-1.MP4" type="video/mp4" id="t4s" />
               <div class="technic-cell" id="t4"><h2>크로스 변형</h2></div>
             </div>
             <div class="group-technic">
-              <div class="thumbnail-video" id="t5vw">
-                <video controls autoplay muted loop width="100%" id="t5v">
-                  <source src="/video/ocho-v1.MP4" type="video/mp4" id="t5s" />
-                </video>
-              </div>
+              <source src="/video/ocho-v1.MP4" type="video/mp4" id="t5s" />
               <div class="technic-cell" id="t5"><h2>백 오초 </h2></div>
             </div>
             <div class="group-technic">
-              <div class="thumbnail-video" id="t6vw">
-                <video controls autoplay muted loop width="100%" id="t6v">
-                  <source src="/video/ocho-v1.MP4" type="video/mp4" id="t6s" />
-                </video>
-              </div>
+              <source src="/video/ocho-v1.MP4" type="video/mp4" id="t6s" />
               <div class="technic-cell" id="t6"><h2>프론트 오초</h2></div>
             </div>
           </div>
@@ -217,15 +191,15 @@
       }
       
       function restStart(nowStatus, nowProgram) {
-        nowsource = document.querySelector(nowProgram+"s").getAttribute('src');
-        console.log(mainvideo);
-        mainvideo.pause();
-        mainsource.setAttribute('src', nowsource);
-        mainvideo.load();
+        
         if (nowStatus == "traning") {
           timer.innerHTML = "Go!";
         } else {
           timer.innerHTML = "휴식";
+          nowsource = document.querySelector(nowProgram+"s").getAttribute('src');
+          mainvideo.pause();
+          mainsource.setAttribute('src', nowsource);
+          mainvideo.load();
         }
         setTimeout(function(){
           pomoInterval = setInterval(pomodoro, 1000);

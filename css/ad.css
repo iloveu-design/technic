@@ -149,6 +149,10 @@ h1 {
   font-size: 4rem;
   border-radius: 10rem;
   padding: 1rem 2rem;
+  position: absolute;
+  left: 25vw;
+  top: 4vh;
+  display: block;
 }
 .group-technic{
   display: flex;
