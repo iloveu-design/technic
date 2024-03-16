@@ -150,8 +150,8 @@ h1 {
   border-radius: 10rem;
   padding: 1rem 2rem;
   position: absolute;
-  left: 20vw;
-  top: 4vh;
+  right: 1vw;
+  top: 48vh;
   display: block;
 }
 .group-technic{
