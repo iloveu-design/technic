@@ -5,10 +5,11 @@
   position: relative;
 }
 
-.video-wrapper {
+.video-wrapper video{
   /* position: absolute; */
   /* width: 100%; */
   /* z-index: 1; */
+  height: 100vh;
 }
 
 .text-box-wrapper {
@@ -136,7 +137,7 @@ h1 {
   color: #e55039;
   color: #4a69bd;
   color: #60a3bc;
-  color: #78e08f;
+  color: #43bad4;
 }
 
 
@@ -163,11 +164,11 @@ h1 {
 }
 
 .traning {
-  background-color: #78e08f;
+  background-color: #43bad4;
 }
 
 .rest{
-  background-color: #e55039;
+  background-color: #8ceb66;
 }
 
 .technic-cell{
@@ -188,7 +189,7 @@ h1 {
 
 }
 .now{
-  background-color: #78e08f;
+  background-color: #43bad4;
 }
 
 .next{
@@ -197,4 +198,9 @@ h1 {
 
 .technic-container{
   display: flex;
+}
+.startbtn{
+  position: absolute;
+  right: 0;
+  top: 0;
 }
