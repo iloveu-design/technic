@@ -154,7 +154,8 @@ h1 {
   display: flex;
 }
 
-.technik-wrapper{
+.thumbnail-video{
+  width: 10vw;
 }
 
 .traning {
@@ -168,11 +169,13 @@ h1 {
 .technic-cell{
   min-width: 10vh;
   background-color: antiquewhite;
-  margin: 1rem;
+  margin: 0 1rem 1rem;
   text-align: center;
   justify-items: center;
   display: flex;
   align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
 }
 .technic-cell h2{
   text-align: center;
