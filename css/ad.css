@@ -204,3 +204,13 @@ h1 {
   right: 0;
   top: 0;
 }
+
+.btn { 
+  display: block;
+  background-color: #43bad4;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  color: #fff;
+  font-size: 4rem;
+  border-radius: 2rem;
+}
