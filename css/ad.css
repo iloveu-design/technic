@@ -214,3 +214,10 @@ h1 {
   font-size: 4rem;
   border-radius: 2rem;
 }
+.d-flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+.btn-one{
+  background-color: #8eda00;
+}
