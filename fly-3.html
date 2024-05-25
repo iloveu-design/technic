@@ -124,10 +124,29 @@
           width: '1600',
           height: '900',
           videoId: player1VideoId,
+          playerVars: {
+            // autoplay: true, // 자동 재생 유무
+            loop: true,     // 반복 재생 유무
+            // playlist: 'EJF919p_hb0',
+            // start: 0,
+            // end: 35
+          },
+          events: {
+            'onReady': function(event){
+              event.target.mute();  // 음소거
+              // event.target.playVideo();   // 반대 역할 : stopVideo();
+            },
+            'onStateChange': onPlayerStateChange
+          }
           // events: {
           //   'onStateChange': onPlayerReady
           // }
         });
+        function onPlayerStateChange(event) {
+          if (event.data == YT.PlayerState.ENDED) {
+            event.target.playVideo();
+          }
+        }
         player2 = new YT.Player('player2', {
           width: '1600',
           height: '900',
@@ -175,6 +194,7 @@
         
         }
 
+
   
         // playerSecure = new YT.Player('playerSecure', {
         //   videoId: playerSecureVideoId,
@@ -207,15 +227,15 @@
   
       }
   
-      function onPlayerStateChange(event) {
-        // if (event.data == YT.PlayerState.ENDED) {
-        //   setTimeout(stopVideo, 300);
-        // }
-      }
+      // function onPlayerStateChange(event) {
+      //   // if (event.data == YT.PlayerState.ENDED) {
+      //   //   setTimeout(stopVideo, 300);
+      //   // }
+      // }
   
-      function stopVideo() {
-        player1.stopVideo();
-      }
+      // function stopVideo() {
+      //   player1.stopVideo();
+      // }
   
       // function onPlayerStateChangeplayerSecure(event) {
       //   if (event.data == YT.PlayerState.ENDED) {
@@ -258,7 +278,6 @@
     </script>
     <script>
       //  document.addEventListener('DOMContentLoaded', function() {
-      //   player1.playVideo();
       // });
       // document.addEventListener('DOMContentLoaded', function() {
       //   $('#movModalDevice').on('shown.bs.modal', function (event) {
@@ -317,7 +336,9 @@
       // var trainings = [["t", 180, "t1"], ["r", 10, "r"], ["t", 180, "t3"]];
       // var trainings = [["traning", 10, "#t1"], ["rest", 5, "#t2"], ["traning", 7, "#t2"], ["rest", 5, "#t3"], ["traning", 7, "#t3"], ["rest", 5, "#t4"], ["traning", 7, "#t4"], ["rest", 5, "#t5"], ["traning", 7, "#t5"], ["rest", 5, "#t6"], ["traning", 7, "#t6"]];
       // var trainings = [["traning", 360, "#t1"], ["rest", 60, "#t2"], ["traning", 360, "#t2"], ["rest", 60, "#t3"], ["traning", 360, "#t3"], ["rest", 60, "#t4"], ["traning", 360, "#t4"], ["rest", 60, "#t5"], ["traning", 360, "#t5"], ["rest", 60, "#t6"], ["traning", 360, "#t6"]];
-      var trainings = [["traning", 1, "#t1"], ["rest", 60, "#t2"], ["traning", 360, "#t2"], ["rest", 60, "#t3"], ["traning", 360, "#t3"], ["rest", 60, "#t4"], ["traning", 360, "#t4"], ["rest", 60, "#t5"], ["traning", 360, "#t5"], ["rest", 60, "#t6"], ["traning", 360, "#t6"]];
+      // var trainings = [["traning", 1, "player1"], ["rest", 60, "player2"], ["traning", 360, "player2"], ["rest", 60, "player3"], ["traning", 360, "player3"], ["rest", 60, "player4"], ["traning", 360, "player4"], ["rest", 60, "player5"], ["traning", 360, "player5"], ["rest", 60, "player6"], ["traning", 360, "player6"]];
+      // var trainings = [["traning", 10, "#t1"], ["rest", 5, "#t2"], ["traning", 7, "#t2"], ["rest", 5, "#t3"], ["traning", 7, "#t3"], ["rest", 5, "#t4"], ["traning", 7, "#t4"], ["rest", 5, "#t5"], ["traning", 7, "#t5"], ["rest", 5, "#t6"], ["traning", 7, "#t6"]];
+      // var trainings = [["traning", 1, "player1"], ["rest", 1, "player2"], ["traning", 1, "player2"], ["rest", 1, "player3"], ["traning", 1, "player3"], ["rest", 1, "player4"], ["traning", 1, "player4"], ["rest", 1, "player5"], ["traning", 10, "player5"], ["rest", 60, "player6"], ["traning", 360, "player6"]];
 
       var nowTraingTime = trainings[0][1];
       var totalStep = trainings.length;
@@ -336,6 +357,7 @@
         nowTraninCell.classList.add("now")
         timer.classList.add(trainings[0][0]);
         timer.innerHTML = "Go!";
+        player1.playVideo();
 
         setTimeout(function(){
           pomodoro();
@@ -409,11 +431,35 @@
       }
       
       function restStart(nowStatus, nowProgram) {
+        console.log(nowProgram);
         
         if (nowStatus == "traning") {
           timer.innerHTML = "Go!";
         } else {
           timer.innerHTML = "휴식";
+          if(nowProgram == "#t1") {
+            player1.playVideo();
+          } else if (nowProgram == "#t2") {
+            player1.stopVideo();
+            player2.playVideo();
+
+          } else if (nowProgram == "#t3") {
+            player2.stopVideo();
+            player3.playVideo();
+
+          } else if (nowProgram == "#t4") {
+            player3.stopVideo();
+            player4.playVideo();
+
+          } else if (nowProgram == "#t5") {
+            player4.stopVideo();
+            player5.playVideo();
+
+          } else if (nowProgram == "#t6") {
+            player5.stopVideo();
+            player6.playVideo();
+
+          }          
           // nowsource = document.querySelector(nowProgram+"s").getAttribute('src');
           // mainvideo.pause();
           // mainsource.setAttribute('src', nowsource);
