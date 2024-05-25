@@ -142,15 +142,18 @@
           //   'onStateChange': onPlayerReady
           // }
         });
-        function onPlayerStateChange(event) {
-          if (event.data == YT.PlayerState.ENDED) {
-            event.target.playVideo();
-          }
-        }
+        
         player2 = new YT.Player('player2', {
           width: '1600',
           height: '900',
           videoId: player2VideoId,
+          events: {
+            'onReady': function(event){
+              event.target.mute();  // 음소거
+              // event.target.playVideo();   // 반대 역할 : stopVideo();
+            },
+            'onStateChange': onPlayerStateChange
+          }
           // events: {
           //   'onStateChange': onPlayerReady
           // }
@@ -159,6 +162,13 @@
           width: '1600',
           height: '900',
           videoId: player3VideoId,
+          events: {
+            'onReady': function(event){
+              event.target.mute();  // 음소거
+              // event.target.playVideo();   // 반대 역할 : stopVideo();
+            },
+            'onStateChange': onPlayerStateChange
+          }
           // events: {
           //   'onStateChange': onPlayerReady
           // }
@@ -167,6 +177,13 @@
           width: '1600',
           height: '900',
           videoId: player4VideoId,
+          events: {
+            'onReady': function(event){
+              event.target.mute();  // 음소거
+              // event.target.playVideo();   // 반대 역할 : stopVideo();
+            },
+            'onStateChange': onPlayerStateChange
+          }
           // events: {
           //   'onStateChange': onPlayerReady
           // }
@@ -175,6 +192,13 @@
           width: '1600',
           height: '900',
           videoId: player5VideoId,
+          events: {
+            'onReady': function(event){
+              event.target.mute();  // 음소거
+              // event.target.playVideo();   // 반대 역할 : stopVideo();
+            },
+            'onStateChange': onPlayerStateChange
+          }
           // events: {
           //   'onStateChange': onPlayerReady
           // }
@@ -183,16 +207,28 @@
           width: '1600',
           height: '900',
           videoId: player6VideoId,
+          events: {
+            'onReady': function(event){
+              event.target.mute();  // 음소거
+              // event.target.playVideo();   // 반대 역할 : stopVideo();
+            },
+            'onStateChange': onPlayerStateChange
+          }
           // events: {
           //   'onStateChange': onPlayerReady
           // }
         });
-        function onPlayerReady(event) {
-          console.log("dd")
-        //로딩된 후에 실행될 동작을 작성한다(소리 크기,동영상 속도를 미리 지정하는 것등등...)
-          event.target.playVideo();//자동재생
-        
+        function onPlayerStateChange(event) {
+          if (event.data == YT.PlayerState.ENDED) {
+            event.target.playVideo();
+          }
         }
+        // function onPlayerReady(event) {
+        //   console.log("dd")
+        // //로딩된 후에 실행될 동작을 작성한다(소리 크기,동영상 속도를 미리 지정하는 것등등...)
+        //   event.target.playVideo();//자동재생
+        
+        // }
 
 
   
