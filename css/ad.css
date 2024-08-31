@@ -294,3 +294,10 @@ h1 {
 .top-info-box {
   padding-left: 5rem;
 }
+
+.check-box{
+  width: 1rem;
+  position: absolute;
+  background-color: #8eda00;
+  right: 1rem;
+}
