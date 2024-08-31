@@ -128,8 +128,9 @@
       let checkBox = document.querySelector('.check-box');
       
 
-      let infoBoxHeight = infoBox.offsetHeight;
-      let windowBoxHeight = windowBox.offsetHeight;
+      function resize() {
+        let windowBoxHeight = windowBox.offsetHeight;
+        let infoBoxHeight = infoBox.offsetHeight;
       let slideBoxHeight = slideBox.offsetHeight;
       // var windowInnerHeight = window.innerHeight;
       var windowInnerHeight = screen.height;
@@ -145,6 +146,13 @@
       document.getElementById("sizeSlide").innerHTML =  slideBoxHeight + "px";
       document.getElementById("sizeSlider").innerHTML =  remainTopBoxHeight + "px";
       document.getElementById("sizeCheckBox").innerHTML =  windowBoxHeight + "px";
+      }
+     
+      setTimeout(function(){
+        setInterval(resize(0), 1000);
+      }, 1000);
+
+      
       
     </script>
     <script>
