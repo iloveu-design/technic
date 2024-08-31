@@ -279,3 +279,7 @@ h1 {
   display: flex;
   align-items: center;
 }
+
+.slide-box{
+  background-color: #8ceb66;
+}
