@@ -38,14 +38,9 @@
       <div class="">
         <div class="timer">
         </div>
-        <div class="check-box">
-          <p id="sizeCheckBox"></p>
-        </div>
         <div class="window-box">
-          <p id="sizeWindow"></p>
         </div>
         <div class="top-info-box">
-          <p id="sizeInfo"></p>
           <div class="title-box">
             <img src="images/modotango-logo-v12.png" class="f-logo">
             <h2>원데이클래스</h2>
@@ -76,8 +71,6 @@
           </div>
         </div>
         <div class="slide-box">
-          <p id="sizeSlide"></p>
-          <p id="sizeSlider"></p>
           <div class="video-wrapper">
             <div class="videoscroll">
               <div class="swiper mySwiper">
@@ -127,10 +120,14 @@
       let slideBox = document.querySelector('.slide-box');
       let checkBox = document.querySelector('.check-box');
       
+      let windowBoxHeight = windowBox.offsetHeight;
 
-      function resize() {
-        let windowBoxHeight = windowBox.offsetHeight;
-        let infoBoxHeight = infoBox.offsetHeight;
+     
+      setTimeout(function(){
+        setInterval(swiper.slideTo(0), 1000);
+      }, 1000);
+
+      let infoBoxHeight = infoBox.offsetHeight;
       let slideBoxHeight = slideBox.offsetHeight;
       // var windowInnerHeight = window.innerHeight;
       var windowInnerHeight = screen.height;
@@ -139,20 +136,11 @@
       console.log(windowInnerHeight - infoBoxHeight);
       console.log(infoBoxHeight,windowInnerHeight );
 
-      checkBox.style.height =  windowBoxHeight + "px";
-      
       document.getElementById("sizeWindow").innerHTML =  windowBoxHeight + "px";
       document.getElementById("sizeInfo").innerHTML =  infoBoxHeight + "px";
       document.getElementById("sizeSlide").innerHTML =  slideBoxHeight + "px";
       document.getElementById("sizeSlider").innerHTML =  remainTopBoxHeight + "px";
       document.getElementById("sizeCheckBox").innerHTML =  windowBoxHeight + "px";
-      }
-     
-      setTimeout(function(){
-        setInterval(resize(0), 1000);
-      }, 1000);
-
-      
       
     </script>
     <script>
