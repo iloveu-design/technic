@@ -65,7 +65,6 @@
                   <div class="curri-cell" id="t6"><h2>프런트 오초</h2></div>
                 </div>
               </div>
-              <div class="curri-swiper-pagination"></div>
             </div>
           </div>
         </div>
@@ -259,11 +258,6 @@
       var swiperCurri = new Swiper(".curriSwiper", {
         slidesPerView: "auto",
         centeredSlides: true,
-
-        pagination: {
-          el: ".curri-swiper-pagination",
-          clickable: true,
-        },
       });
       var swiper = new Swiper(".mySwiper", {
         slidesPerView: "auto",
@@ -275,6 +269,10 @@
           clickable: true,
         },
       });
+      setTimeout(function(){
+        setInterval(swiper.slideTo(0), 1000);
+      }, 1000);
+
     </script>
     <script>
       const pomoBtn = document.querySelector(".btn");
@@ -292,11 +290,6 @@
       let restTime = 5;
       // let restTime = 300;
 
-      // var trainingsProd = [["traning", 180, "#t1"], ["rest", 15, "r"], ["traning", 180, "#t2"], ["rest", 20, "r"], ["traning", 180, "#t3"], ["rest", 15, "r"], ["traning", 180, "#t4"], ["rest", 20, "r"], ["traning", 180, "#t5"], ["rest", 15, "r"], ["traning", 180, "#t6"], ["rest", 60, "r"], ["traning", 180, "#t7"], ["rest", 15, "r"], ["traning", 180, "#t8"], ["rest", 20, "r"], ["traning", 180, "#t9"], ["rest", 15, "r"], ["traning", 180, "#t10"], ["rest", 20, "r"], ["traning", 180, "#t11"], ["rest", 15, "r"], ["traning", 180, "#t12"] ];
-      // var trainings = [["t", 180, "t1"], ["r", 10, "r"], ["t", 180, "t3"]];
-      // var trainings = [["traning", 10, "#t1"], ["rest", 5, "#t2"], ["traning", 7, "#t2"], ["rest", 5, "#t3"], ["traning", 7, "#t3"], ["rest", 5, "#t4"], ["traning", 7, "#t4"], ["rest", 5, "#t5"], ["traning", 7, "#t5"], ["rest", 5, "#t6"], ["traning", 7, "#t6"]];
-      // var trainings = [["traning", 360, "#t1"], ["rest", 60, "#t2"], ["traning", 360, "#t2"], ["rest", 60, "#t3"], ["traning", 360, "#t3"], ["rest", 60, "#t4"], ["traning", 360, "#t4"], ["rest", 60, "#t5"], ["traning", 360, "#t5"], ["rest", 60, "#t6"], ["traning", 360, "#t6"]];
-      // var trainings = [["traning", 1, "player1"], ["rest", 60, "player2"], ["traning", 360, "player2"], ["rest", 60, "player3"], ["traning", 360, "player3"], ["rest", 60, "player4"], ["traning", 360, "player4"], ["rest", 60, "player5"], ["traning", 360, "player5"], ["rest", 60, "player6"], ["traning", 360, "player6"]];
       var trainings = [["traning", 3, "#t1"], ["rest", 3, "#t2"], ["traning", 3, "#t2"], ["rest", 3, "#t3"], ["traning", 3, "#t3"], ["rest", 3, "#t4"], ["traning", 3, "#t4"], ["rest", 5, "#t5"], ["traning", 7, "#t5"], ["rest", 5, "#t6"], ["traning", 7, "#t6"]];
     //   var trainings = [["traning", 360, "#t1"], ["rest", 60, "#t2"], ["traning", 360, "#t2"], ["rest", 60, "#t3"], ["traning", 360, "#t3"], ["rest",60, "#t4"], ["traning", 360, "#t4"], ["rest", 60, "#t5"], ["traning", 360, "#t5"], ["rest", 60, "#t6"], ["traning", 360, "#t6"]];
 
@@ -306,10 +299,6 @@
       var nowStatus = "traning";
       var nowProgram = "#t1";
       var nextProgram = "#t2";
-
-      // mainvideo.pause();
-      // mainsource.setAttribute('src', nowsource);
-      // mainvideo.load();
 
 
       function pomoStart() {
@@ -399,6 +388,7 @@
         } else {
           timer.innerHTML = "휴식";
           swiper.slideNext();
+          swiperCurri.slideNext();
           if(nowProgram == "#t1") {
             player1.playVideo();
           } else if (nowProgram == "#t2") {
@@ -430,7 +420,6 @@
 
       }
       
-  
 
 
     </script>
