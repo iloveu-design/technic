@@ -149,10 +149,10 @@ h1 {
 .timer{
   font-size: 6rem;
   border-radius: 10rem;
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   position: absolute;
   right: 2vw;
-  top: 16vh;
+  top: 2rem;
   display: block;
   z-index: 111;
 }
@@ -251,7 +251,9 @@ h1 {
   border-radius: 1rem;
   padding: 1rem;
 }
-
+.swiper-slide-active .curri-cell{
+  background-color: gold;
+}
 .curriSwiper .swiper-slide {
   display: flex;
   width: fit-content;
