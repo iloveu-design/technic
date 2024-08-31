@@ -116,7 +116,7 @@
       let infoBox = document.querySelector('.top-info-box');
       let infoBoxHeight = infoBox.offsetHeight;
       // var windowInnerHeight = window.innerHeight;
-      var windowInnerHeight = window.outerHeight;
+      var windowInnerHeight = screen.availHeight;
       var remainTopBoxHeight = windowInnerHeight - infoBoxHeight;
       var youtubeWidht = remainTopBoxHeight * (16/9);
       console.log(windowInnerHeight - infoBoxHeight);
