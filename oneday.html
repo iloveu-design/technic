@@ -117,10 +117,13 @@
     </main>
     <script>
       let infoBox = document.querySelector('.top-info-box');
+      let windowBox = document.querySelector('.window-box');
+      
       let infoBoxHeight = infoBox.offsetHeight;
+      let windowBoxHeight = windowBox.offsetHeight;
       // var windowInnerHeight = window.innerHeight;
       var windowInnerHeight = screen.height;
-      var remainTopBoxHeight = windowInnerHeight - infoBoxHeight;
+      var remainTopBoxHeight = windowBoxHeight - infoBoxHeight;
       var youtubeWidht = remainTopBoxHeight * (16/9);
       console.log(windowInnerHeight - infoBoxHeight);
       console.log(infoBoxHeight,windowInnerHeight );
