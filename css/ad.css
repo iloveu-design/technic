@@ -251,3 +251,18 @@ h1 {
   /* overflow: hidden; */
 }
 
+.curriSwiper {
+  margin-bottom: ;
+}
+.curri-cell{
+  background-color: lightblue;
+  padding: 1rem;
+}
+
+.curriSwiper .swiper-slide {
+  display: flex;
+  /* display: inline-block; */
+  width: fit-content;
+  padding: 0 1rem;
+
+}
