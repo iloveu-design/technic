@@ -38,7 +38,9 @@
       <div class="">
         <div class="timer">
         </div>
-        <div class="check-box"></div>
+        <div class="check-box">
+          <p id="sizeCheckBox"></p>
+        </div>
         <div class="window-box">
           <p id="sizeWindow"></p>
         </div>
@@ -125,7 +127,6 @@
       let slideBox = document.querySelector('.slide-box');
       let checkBox = document.querySelector('.check-box');
       
-      
 
       let infoBoxHeight = infoBox.offsetHeight;
       let windowBoxHeight = windowBox.offsetHeight;
@@ -143,6 +144,8 @@
       document.getElementById("sizeInfo").innerHTML =  infoBoxHeight + "px";
       document.getElementById("sizeSlide").innerHTML =  slideBoxHeight + "px";
       document.getElementById("sizeSlider").innerHTML =  remainTopBoxHeight + "px";
+      document.getElementById("sizeCheckBox").innerHTML =  windowBoxHeight + "px";
+      
     </script>
     <script>
       var tag = document.createElement('script');
