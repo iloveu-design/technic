@@ -290,3 +290,7 @@ h1 {
   height: 100vh;
   /* background-color: darkorange; */
 }
+
+.top-info-box {
+  padding-left: 5rem;
+}

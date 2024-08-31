@@ -39,9 +39,10 @@
         <div class="timer">
         </div>
         <div class="window-box">
-
+          <p id="sizeWindow"></p>
         </div>
         <div class="top-info-box">
+          <p id="sizeInfo"></p>
           <div class="title-box">
             <img src="images/modotango-logo-v12.png" class="f-logo">
             <h2>원데이클래스</h2>
@@ -72,6 +73,8 @@
           </div>
         </div>
         <div class="slide-box">
+          <p id="sizeSlide"></p>
+          <p id="sizeSlider"></p>
           <div class="video-wrapper">
             <div class="videoscroll">
               <div class="swiper mySwiper">
@@ -116,17 +119,26 @@
       </div>
     </main>
     <script>
-      let infoBox = document.querySelector('.top-info-box');
       let windowBox = document.querySelector('.window-box');
+      let infoBox = document.querySelector('.top-info-box');
+      let slideBox = document.querySelector('.slide-box');
       
+
       let infoBoxHeight = infoBox.offsetHeight;
       let windowBoxHeight = windowBox.offsetHeight;
+      let slideBoxHeight = slideBox.offsetHeight;
       // var windowInnerHeight = window.innerHeight;
       var windowInnerHeight = screen.height;
       var remainTopBoxHeight = windowBoxHeight - infoBoxHeight;
       var youtubeWidht = remainTopBoxHeight * (16/9);
       console.log(windowInnerHeight - infoBoxHeight);
       console.log(infoBoxHeight,windowInnerHeight );
+
+      
+      document.getElementById("sizeWindow").innerHTML =  windowBoxHeight + "px";
+      document.getElementById("sizeInfo").innerHTML =  infoBoxHeight + "px";
+      document.getElementById("sizeSlide").innerHTML =  slideBoxHeight + "px";
+      document.getElementById("sizeSlider").innerHTML =  remainTopBoxHeight + "px";
     </script>
     <script>
       var tag = document.createElement('script');
