@@ -38,33 +38,35 @@
       <div class="">
         <div class="timer">
         </div>
-        <div class="title-box">
-          <img src="images/modotango-logo-v12.png" class="f-logo">
+        <div class="top-info-box">
+          <div class="title-box">
+            <img src="images/modotango-logo-v12.png" class="f-logo">
 
-        </div>
-        <div class="curriculam-box">
-          <div class="swiper curriSwiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="curri-cell" id="t1"><h2>6살리다</h2></div>
+          </div>
+          <div class="curriculam-box">
+            <div class="swiper curriSwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="curri-cell" id="t1"><h2>6살리다</h2></div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="curri-cell" id="t2"><h2>피봇</h2></div> 
+                </div>
+                <div class="swiper-slide">
+                  <div class="curri-cell" id="t3"><h2>크로스 스텝</h2></div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="curri-cell" id="t4"><h2>크로스 변형</h2></div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="curri-cell" id="t5"><h2>백 오초</h2></div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="curri-cell" id="t6"><h2>프런트 오초</h2></div>
+                </div>
               </div>
-              <div class="swiper-slide">
-                <div class="curri-cell" id="t2"><h2>피봇</h2></div> 
-              </div>
-              <div class="swiper-slide">
-                <div class="curri-cell" id="t3"><h2>크로스 스텝</h2></div>
-              </div>
-              <div class="swiper-slide">
-                <div class="curri-cell" id="t4"><h2>크로스 변형</h2></div>
-              </div>
-              <div class="swiper-slide">
-                <div class="curri-cell" id="t5"><h2>백 오초</h2></div>
-              </div>
-              <div class="swiper-slide">
-                <div class="curri-cell" id="t6"><h2>프런트 오초</h2></div>
-              </div>
+              <div class="curri-swiper-pagination"></div>
             </div>
-            <div class="curri-swiper-pagination"></div>
           </div>
         </div>
         <div class="">
@@ -111,7 +113,15 @@
 
       </div>
     </main>
-   
+    <script>
+      let infoBox = document.querySelector('.top-info-box');
+      let infoBoxHeight = infoBox.offsetHeight;
+      var windowInnerHeight = window.innerHeight;
+      var remainTopBoxHeight = windowInnerHeight - infoBoxHeight;
+      var youtubeWidht = remainTopBoxHeight * (16/9);
+      console.log(windowInnerHeight - infoBoxHeight);
+      console.log(infoBoxHeight,windowInnerHeight );
+    </script>
     <script>
       var tag = document.createElement('script');
       tag.src = "https://www.youtube.com/iframe_api";
@@ -134,8 +144,8 @@
   
   
         player1 = new YT.Player('player1', {
-          width: '1600',
-          height: '900',
+          width: youtubeWidht,
+          height: remainTopBoxHeight,
           videoId: player1VideoId,
           playerVars: {
             // autoplay: true, // 자동 재생 유무
@@ -157,8 +167,8 @@
         });
         
         player2 = new YT.Player('player2', {
-          width: '1600',
-          height: '900',
+          width: youtubeWidht,
+          height: remainTopBoxHeight,
           videoId: player2VideoId,
           events: {
             'onReady': function(event){
@@ -172,8 +182,8 @@
           // }
         });
         player3 = new YT.Player('player3', {
-          width: '1600',
-          height: '900',
+          width: youtubeWidht,
+          height: remainTopBoxHeight,
           videoId: player3VideoId,
           events: {
             'onReady': function(event){
@@ -187,8 +197,8 @@
           // }
         });
         player4 = new YT.Player('player4', {
-          width: '1600',
-          height: '900',
+          width: youtubeWidht,
+          height: remainTopBoxHeight,
           videoId: player4VideoId,
           events: {
             'onReady': function(event){
@@ -202,8 +212,8 @@
           // }
         });
         player5 = new YT.Player('player5', {
-          width: '1600',
-          height: '900',
+          width: youtubeWidht,
+          height: remainTopBoxHeight,
           videoId: player5VideoId,
           events: {
             'onReady': function(event){
@@ -217,8 +227,8 @@
           // }
         });
         player6 = new YT.Player('player6', {
-          width: '1600',
-          height: '900',
+          width: youtubeWidht,
+          height: remainTopBoxHeight,
           videoId: player6VideoId,
           events: {
             'onReady': function(event){
@@ -236,133 +246,8 @@
             event.target.playVideo();
           }
         }
-        // function onPlayerReady(event) {
-        //   console.log("dd")
-        // //로딩된 후에 실행될 동작을 작성한다(소리 크기,동영상 속도를 미리 지정하는 것등등...)
-        //   event.target.playVideo();//자동재생
-        
-        // }
-
-
-  
-        // playerSecure = new YT.Player('playerSecure', {
-        //   videoId: playerSecureVideoId,
-        //   events: {
-        //     'onStateChange': onPlayerStateChangeplayerSecure
-        //   }
-        // });
-       
-        // playerTee = new YT.Player('playerTee', {
-        //   videoId: playerTeeVideoId,
-        //   events: {
-        //     'onStateChange': onPlayerStateChangeplayerTee
-        //   }
-        // });
-       
-        // playerCerti = new YT.Player('playerCerti', {
-        //   videoId: playerCertiVideoId,
-        //   events: {
-        //     'onStateChange': onPlayerStateChangeplayerCerti  
-        //   }
-        // });
-  
-  
-        // playerServer = new YT.Player('playerServer', {
-        //   videoId: playerServerVideoId,
-        //   events: {
-        //     'onStateChange': onPlayerStateChangeplayerServer
-        //   }
-        // });
   
       }
-  
-      // function onPlayerStateChange(event) {
-      //   // if (event.data == YT.PlayerState.ENDED) {
-      //   //   setTimeout(stopVideo, 300);
-      //   // }
-      // }
-  
-      // function stopVideo() {
-      //   player1.stopVideo();
-      // }
-  
-      // function onPlayerStateChangeplayerSecure(event) {
-      //   if (event.data == YT.PlayerState.ENDED) {
-      //     setTimeout(stopVideoplayerSecure, 300);
-      //   }
-      // }
-      // function stopVideoplayerSecure() {
-      //   playerSecure.stopVideo();
-      //   $('#movModalSecure').modal('hide');
-      // }
-  
-      // function onPlayerStateChangeplayerTee(event) {
-      //   if (event.data == YT.PlayerState.ENDED) {
-      //     setTimeout(stopVideoplayerTee, 300);
-      //   }
-      // }
-      // function stopVideoplayerTee() {
-      //   playerTee.stopVideo();
-      //   $('#movModalTee').modal('hide');
-      // }
-      // function onPlayerStateChangeplayerCerti(event) {
-      //   if (event.data == YT.PlayerState.ENDED) {
-      //     setTimeout(stopVideoplayerCerti, 300);
-      //   }
-      // }
-      // function stopVideoplayerCerti() {
-      //   playerCerti.stopVideo();
-      //   $('#movModalCerti').modal('hide');
-      // }
-      // function onPlayerStateChangeplayerServer(event) {
-      //   if (event.data == YT.PlayerState.ENDED) {
-      //     setTimeout(stopVideoplayerServer, 300);
-      //   }
-      // }
-      // function stopVideoplayerServer() {
-      //   playerServer.stopVideo();
-      //   $('#movModalServer').modal('hide');
-      // }
-  
-    </script>
-    <script>
-      //  document.addEventListener('DOMContentLoaded', function() {
-      // });
-      // document.addEventListener('DOMContentLoaded', function() {
-      //   $('#movModalDevice').on('shown.bs.modal', function (event) {
-      //     playerDice.playVideo();
-      //   });
-      //   $('#movModalDevice').on('hide.bs.modal', function (event) {
-      //     playerDice.pauseVideo();
-      //   });
-      //   $('#movModalSecure').on('shown.bs.modal', function (event) {
-      //     playerSecure.playVideo();
-      //   });
-      //   $('#movModalSecure').on('hide.bs.modal', function (event) {
-      //     playerSecure.pauseVideo();
-      //   });
-      //   $('#movModalTee').on('shown.bs.modal', function (event) {
-      //     playerTee.playVideo();
-      //   });
-      //   $('#movModalTee').on('hide.bs.modal', function (event) {
-      //     playerTee.pauseVideo();
-      //   });
-        
-      //   $('#movModalCerti').on('shown.bs.modal', function (event) {
-      //     playerCerti.playVideo();
-      //   });
-      //   $('#movModalCerti').on('hide.bs.modal', function (event) {
-      //     playerCerti.pauseVideo();
-      //   });
-       
-      //   $('#movModalServer').on('shown.bs.modal', function (event) {
-      //     playerServer.playVideo();
-      //   });
-      //   $('#movModalServer').on('hide.bs.modal', function (event) {
-      //     playerServer.pauseVideo();
-      //   });
-      
-      // });
   
     </script>
      <!-- Swiper JS -->
@@ -370,16 +255,21 @@
 
     <!-- Initialize Swiper -->
     <script>
+
       var swiperCurri = new Swiper(".curriSwiper", {
         slidesPerView: "auto",
+        centeredSlides: true,
+
         pagination: {
           el: ".curri-swiper-pagination",
           clickable: true,
         },
       });
       var swiper = new Swiper(".mySwiper", {
+        slidesPerView: "auto",
+        centeredSlides: true,
         // direction: "vertical",
-        height: 900,
+        height: remainTopBoxHeight,
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
@@ -532,89 +422,19 @@
             player6.playVideo();
 
           }          
-          // nowsource = document.querySelector(nowProgram+"s").getAttribute('src');
-          // mainvideo.pause();
-          // mainsource.setAttribute('src', nowsource);
-          // mainvideo.load();
+
         }
         setTimeout(function(){
           pomoInterval = setInterval(pomodoro, 1000);
         }, 1000);
 
-        // restInterval = setInterval(restStart, 1000);
-        // const restMinutes = String(Math.floor(restTime / 60)).padStart(2, "0");
-        // const restSeconds = String(restTime % 60).padStart(2, "0");
-        // restTime -= 1;
-        // timer.innerHTML = `${restMinutes} : ${restSeconds}`;
-        // if (restTime < 5 && restTime >= 0) {
-        //                                     // beep();
-        // } else if (restTime < 0) {
-        //                           clearInterval(restInterval);
-        //                           // window.location.reload(true);
-        // }
       }
       
-      // function beep() { 
-      // const snd = new Audio("https://t1.daumcdn.net/cfile/tistory/99412B355CF6B93806?original");
-      //       snd.play(); 
-      // } 
-
+  
 
 
     </script>
 
-    <script>
-      // var vid1 = document.getElementById("video1");
-      // var vid2 = document.getElementById("video2");
-      // var centerText = document.querySelector(".center-text");
-      // var videoWrapper = document.getElementById("videoWrapper");
-      // var messageWrapper = document.getElementById("messageWrapper");
-      // var aa = document.getElementById("aa");
-      // var randomColor = ["#e55039", "#4a69bd", "#60a3bc"];
-      // var rand_0_6 = 0;
-      // var rand_0_1_text = 0;
-      // var tagnoWordings = document.querySelectorAll(".tagno-wording");
-      // vid2.style.display = "none";
-
-      // function middle() {
-      //   videoWrapper.style.display = "none";
-      //   rand_0_1_text = Math.floor(Math.random() * 5);
-      //   for (var i = 0; i < tagnoWordings.length; i++) {
-      //     tagnoWordings[i].style.display = "none";
-      //     if (rand_0_1_text == i) {
-      //       tagnoWordings[i].style.display = "block"; //클래스 값이 abc인 모든 요소를 빨간색으로 변경
-      //     }
-      //   }
-      //   messageWrapper.style.display = "block";
-      //   rand_0_6 = Math.floor(Math.random() * 3);
-      // }
-
-      // function last() {
-      //   centerText.style.backgroundColor = randomColor[rand_0_6];
-      //   videoWrapper.style.display = "block";
-      //   messageWrapper.style.display = "none";
-      //   aa.classList.remove("animate__jello");
-      //   aa.classList.remove("animate__repeat-3");
-      // }
-
-      // vid1.onended = function () {
-      //   vid1.style.display = "none";
-      //   middle();
-      //   setTimeout(function () {
-      //     last();
-      //     vid2.play();
-      //     vid2.style.display = "block";
-      //   }, 10000);
-      // };
-      // vid2.onended = function () {
-      //   vid2.style.display = "none";
-      //   middle();
-      //   setTimeout(function () {
-      //     last();
-      //     vid1.play();
-      //     vid1.style.display = "block";
-      //   }, 10000);
-      // };
-    </script>
+  
   </body>
 </html>

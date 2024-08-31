@@ -232,8 +232,6 @@ h1 {
 }
 
 .videoscroll{
-  height: 100vh;
-  /* height: 50vh; */
   overflow: scroll;
 }
 
@@ -242,27 +240,26 @@ h1 {
   height: 1rem;
 }
 
-/* .swiper-slide{
-  height: 100vh !important;
-} */
 
-.video-wrapper .swiper-wrapper{
-  height: 100vh;
-  /* overflow: hidden; */
-}
 
-.curriSwiper {
-  margin-bottom: ;
+.top-info-box{
+  padding-bottom: 1rem;
+
 }
 .curri-cell{
   background-color: lightblue;
+  border-radius: 1rem;
   padding: 1rem;
 }
 
 .curriSwiper .swiper-slide {
   display: flex;
-  /* display: inline-block; */
   width: fit-content;
   padding: 0 1rem;
 
+}
+
+.mySwiper .swiper-slide {
+  display: flex;
+  width: fit-content;
 }
