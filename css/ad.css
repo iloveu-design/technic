@@ -148,13 +148,14 @@ h1 {
 
 .timer{
   font-size: 6rem;
-  border-radius: 10rem;
-  padding: 1rem 1rem;
+  border-radius: 2rem;
+  padding: .5rem 1rem;
   position: absolute;
   right: 2vw;
   top: 2rem;
   display: block;
   z-index: 111;
+  line-height: 1;
 }
 .group-technic{
   display: flex;
@@ -165,7 +166,8 @@ h1 {
 }
 
 .traning {
-  background-color: #43bad4;
+  background-color: white;
+  border: 1rem solid #25ccf7;
 }
 
 .rest{
@@ -205,6 +207,11 @@ h1 {
   right: 0;
   top: 0;
   z-index: 111;
+  display: block;
+  font-size: 2rem;
+  background-color: transparent;
+  border-radius: 2rem;
+  padding: 1rem;
 }
 
 .btn { 
