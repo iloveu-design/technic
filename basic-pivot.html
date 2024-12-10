@@ -9,7 +9,7 @@
     />
     <meta name="description" content="" />
     <meta name="”keywords”" content="" />
-    <title>모두의탱고 태크닉</title>
+    <title>모두의탱고 pivot</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -43,15 +43,15 @@
         <div class="top-info-box">
           <div class="title-box">
             <img src="images/modotango-logo-v12.png" class="f-logo">
-            <h2>원데이클래스</h2>
+            <h2>기본기</h2>
           </div>
           <div class="curriculam-box">
             <div class="swiper curriSwiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <div class="curri-cell" id="t1"><h2>6살리다</h2></div>
+                  <div class="curri-cell" id="t1"><h2>피벗</h2></div>
                 </div>
-                <div class="swiper-slide">
+                <!-- <div class="swiper-slide">
                   <div class="curri-cell" id="t2"><h2>피봇</h2></div> 
                 </div>
                 <div class="swiper-slide">
@@ -65,7 +65,7 @@
                 </div>
                 <div class="swiper-slide">
                   <div class="curri-cell" id="t6"><h2>프런트 오초</h2></div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@
                       <div id="player1"></div>
                     </div>
                   </div>
-                  <div class="swiper-slide">
+                  <!-- <div class="swiper-slide">
                     <div class="embed-responsive embed-responsive-16by9 ytvideobox">
                       <div id="player2"></div>
                     </div>
@@ -104,7 +104,7 @@
                     <div class="embed-responsive embed-responsive-16by9 ytvideobox">
                       <div id="player6"></div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="swiper-pagination"></div>
               </div>
@@ -133,9 +133,7 @@
       var windowInnerHeight = screen.height;
       var remainTopBoxHeight = windowBoxHeight - infoBoxHeight;
       var youtubeWidht = remainTopBoxHeight * (16/9);
-      console.log(windowInnerHeight - infoBoxHeight);
-      console.log(infoBoxHeight,windowInnerHeight );
-
+      
     </script>
     <script>
       var tag = document.createElement('script');
@@ -150,12 +148,12 @@
   
 
       function onYouTubeIframeAPIReady() {
-        player1VideoId = 'WJpVNHtnuxE';
-        player2VideoId = 'JnAKkkRekOU';
-        player3VideoId = 'SY57c2aftu8';
-        player4VideoId = 'weRpILBuFCY';
-        player5VideoId = 'ICeRDkUUh2A';
-        player6VideoId = 'TKSrU0uqxCM';
+        player1VideoId = 'GlPHc_jfE_4';
+        // player2VideoId = 'JnAKkkRekOU';
+        // player3VideoId = 'SY57c2aftu8';
+        // player4VideoId = 'weRpILBuFCY';
+        // player5VideoId = 'ICeRDkUUh2A';
+        // player6VideoId = 'TKSrU0uqxCM';
   
   
         player1 = new YT.Player('player1', {
@@ -181,81 +179,6 @@
           // }
         });
         
-        player2 = new YT.Player('player2', {
-          width: youtubeWidht,
-          height: remainTopBoxHeight,
-          videoId: player2VideoId,
-          events: {
-            'onReady': function(event){
-              event.target.mute();  // 음소거
-              // event.target.playVideo();   // 반대 역할 : stopVideo();
-            },
-            'onStateChange': onPlayerStateChange
-          }
-          // events: {
-          //   'onStateChange': onPlayerReady
-          // }
-        });
-        player3 = new YT.Player('player3', {
-          width: youtubeWidht,
-          height: remainTopBoxHeight,
-          videoId: player3VideoId,
-          events: {
-            'onReady': function(event){
-              event.target.mute();  // 음소거
-              // event.target.playVideo();   // 반대 역할 : stopVideo();
-            },
-            'onStateChange': onPlayerStateChange
-          }
-          // events: {
-          //   'onStateChange': onPlayerReady
-          // }
-        });
-        player4 = new YT.Player('player4', {
-          width: youtubeWidht,
-          height: remainTopBoxHeight,
-          videoId: player4VideoId,
-          events: {
-            'onReady': function(event){
-              event.target.mute();  // 음소거
-              // event.target.playVideo();   // 반대 역할 : stopVideo();
-            },
-            'onStateChange': onPlayerStateChange
-          }
-          // events: {
-          //   'onStateChange': onPlayerReady
-          // }
-        });
-        player5 = new YT.Player('player5', {
-          width: youtubeWidht,
-          height: remainTopBoxHeight,
-          videoId: player5VideoId,
-          events: {
-            'onReady': function(event){
-              event.target.mute();  // 음소거
-              // event.target.playVideo();   // 반대 역할 : stopVideo();
-            },
-            'onStateChange': onPlayerStateChange
-          }
-          // events: {
-          //   'onStateChange': onPlayerReady
-          // }
-        });
-        player6 = new YT.Player('player6', {
-          width: youtubeWidht,
-          height: remainTopBoxHeight,
-          videoId: player6VideoId,
-          events: {
-            'onReady': function(event){
-              event.target.mute();  // 음소거
-              // event.target.playVideo();   // 반대 역할 : stopVideo();
-            },
-            'onStateChange': onPlayerStateChange
-          }
-          // events: {
-          //   'onStateChange': onPlayerReady
-          // }
-        });
         function onPlayerStateChange(event) {
           if (event.data == YT.PlayerState.ENDED) {
             event.target.playVideo();
@@ -307,14 +230,14 @@
       // let restTime = 300;
 
       // var trainings = [["traning", 3, "#t1"], ["rest", 3, "#t2"], ["traning", 3, "#t2"], ["rest", 3, "#t3"], ["traning", 3, "#t3"], ["rest", 3, "#t4"], ["traning", 3, "#t4"], ["rest", 5, "#t5"], ["traning", 7, "#t5"], ["rest", 5, "#t6"], ["traning", 7, "#t6"]];
-      var trainings = [["traning", 360, "#t1"], ["rest", 60, "#t2"], ["traning", 360, "#t2"], ["rest", 60, "#t3"], ["traning", 360, "#t3"], ["rest",60, "#t4"], ["traning", 360, "#t4"], ["rest", 60, "#t5"], ["traning", 360, "#t5"], ["rest", 60, "#t6"], ["traning", 360, "#t6"]];
+      var trainings = [["traning", 600, "#t1"], ["rest", 180, "#t1"], ["traning", 600, "#t1"], ["rest", 180, "#t1"]];
 
       var nowTraingTime = trainings[0][1];
       var totalStep = trainings.length;
       var nowStep = 0;
       var nowStatus = "traning";
       var nowProgram = "#t1";
-      var nextProgram = "#t2";
+      var nextProgram = "#t1";
 
 
       function pomoStart() {
@@ -353,7 +276,11 @@
                               nowStatus = trainings[nowStep][0];
                               nowProgram = trainings[nowStep][2];
                             } else {
-                              return;
+                              // return;
+                              nowStep = 1;
+                              nowTraingTime = trainings[nowStep][1];
+                              nowStatus = trainings[nowStep][0];
+                              nowProgram = trainings[nowStep][2];
                             }
                            
                             if(totalStep > nowStep+1) {
@@ -376,7 +303,8 @@
                             } else {
                               nowTraninCell = null;
                               if (totalStep == nowStep) {
-
+                                nextProgramCell = document.querySelector(nextProgram);
+                                nextProgramCell.classList.add("next");
                               } else {
                                 nextProgramCell = document.querySelector(nextProgram);
                                 nextProgramCell.classList.add("next");
@@ -386,6 +314,8 @@
 
                             if (totalStep == nowStep) {
                               console.log("끝");
+                              
+                              restStart("traning", "#t1");
                             } else {
                               restStart(nowStatus, nowProgram);
                             }
